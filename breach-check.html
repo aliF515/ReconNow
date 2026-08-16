@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; script-src 'self';">
+<title>Breach Check — SentryPoint</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand"><span class="dot"></span>SENTRYPOINT</a>
+    <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="scanner.html">Scanner</a>
+      <a href="breach-check.html" class="active">Breach Check</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="login.html">Log in</a>
+      <a href="pricing.html" class="nav-cta">Go Pro</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="wrap">
+    <span class="eyebrow">Breach exposure check</span>
+    <h1>Has this email shown up in a data breach?</h1>
+    <p>Enter an email to see which known breaches it appeared in and what categories of data were exposed. We never display, store, or look up actual passwords — for anyone's account, including your own.</p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="wrap" style="max-width:760px;">
+    <div class="tool-panel">
+      <form id="breachForm">
+        <div class="search-row">
+          <input type="email" id="breachInput" placeholder="you@example.com" autocomplete="off" required>
+          <button type="submit" class="btn btn-primary">Check</button>
+        </div>
+        <p class="help-text">Only check emails you own or are authorized to investigate.</p>
+      </form>
+
+      <div class="result-panel" id="breachResults">
+        <div class="result-empty">Enter an email to check for exposure.</div>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>Why no passwords, ever.</strong> Showing a breached password lets anyone try it against other accounts — that's account takeover, not protection. This tool tells you <em>where</em> you were exposed and <em>what kind</em> of data leaked, which is what you need to actually respond: change that password and turn on 2FA.
+    </div>
+
+    <div class="note-box">
+      <strong>Data source note.</strong> This demo uses simulated results. Wire up <code>runBreachCheck()</code> in <code>js/main.js</code> to a backend endpoint that queries a legitimate breach-directory API (e.g. Have I Been Pwned) with a server-side key, respecting its terms of use.
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <p>© 2026 SentryPoint. For defensive security research only.</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="scanner.html">Scanner</a>
+      <a href="pricing.html">Pricing</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

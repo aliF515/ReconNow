@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; script-src 'self';">
+<title>Pricing — SentryPoint</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand"><span class="dot"></span>SENTRYPOINT</a>
+    <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="scanner.html">Scanner</a>
+      <a href="breach-check.html">Breach Check</a>
+      <a href="pricing.html" class="active">Pricing</a>
+      <a href="login.html">Log in</a>
+      <a href="pricing.html" class="nav-cta">Go Pro</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="wrap" style="text-align:center; border:none;">
+    <span class="eyebrow">Pricing</span>
+    <h1>Free to explore. Pro when you scan for a living.</h1>
+    <p style="margin:0 auto;">No hidden tiers, no per-scan surprise fees.</p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="wrap">
+    <div class="toggle-row">
+      <span style="font-size:14px; color:var(--muted);">Monthly</span>
+      <div class="toggle-switch" id="billingToggle"><div class="knob"></div></div>
+      <span style="font-size:14px; color:var(--muted);">Yearly</span>
+      <span class="save-pill">Save 2 months</span>
+    </div>
+
+    <div class="grid-2" style="max-width:760px; margin:0 auto;">
+      <div class="price-card">
+        <h3>Free</h3>
+        <div class="price-amt">$0 <span>/ forever</span></div>
+        <p class="price-sub">For occasional checks and getting a feel for the tool.</p>
+        <ul class="price-list">
+          <li><span class="m">✓</span> 5 indicator scans / day</li>
+          <li><span class="m">✓</span> 3 breach checks / day</li>
+          <li><span class="m">✓</span> Basic verdict + detection ratio</li>
+          <li class="off"><span class="x">–</span> Full breach history</li>
+          <li class="off"><span class="x">–</span> API access</li>
+          <li class="off"><span class="x">–</span> Export &amp; team seats</li>
+        </ul>
+        <a href="login.html" class="btn btn-ghost" style="justify-content:center;">Start free</a>
+      </div>
+
+      <div class="price-card featured">
+        <h3>Pro</h3>
+        <div class="price-amt" data-billing="monthly">$50 <span>/ month</span></div>
+        <div class="price-amt" data-billing="yearly">$600 <span>/ year</span></div>
+        <p class="price-sub" data-billing="monthly">Billed monthly, cancel anytime.</p>
+        <p class="price-sub" data-billing="yearly">Billed yearly — equivalent to $50/mo, 2 months free vs. monthly.</p>
+        <ul class="price-list">
+          <li><span class="m">✓</span> Unlimited indicator scans</li>
+          <li><span class="m">✓</span> Unlimited breach checks</li>
+          <li><span class="m">✓</span> Full detection &amp; registrar history</li>
+          <li><span class="m">✓</span> API access (1,000 req/day)</li>
+          <li><span class="m">✓</span> CSV / JSON export</li>
+          <li><span class="m">✓</span> Priority support</li>
+        </ul>
+        <a href="login.html" class="btn btn-primary" style="justify-content:center;">Upgrade to Pro</a>
+      </div>
+    </div>
+
+    <div class="note-box" style="max-width:760px; margin:32px auto 0;">
+      <strong>Billing note.</strong> This front end is UI-only. Wire the upgrade buttons to a real payment processor (Stripe, Paddle, etc.) via a backend endpoint — never handle card data or entitlement checks purely on the client, or Pro features can be unlocked by anyone editing local storage.
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <p>© 2026 SentryPoint. For defensive security research only.</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="scanner.html">Scanner</a>
+      <a href="breach-check.html">Breach Check</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; script-src 'self';">
+<title>Scanner — SentryPoint</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand"><span class="dot"></span>SENTRYPOINT</a>
+    <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="scanner.html" class="active">Scanner</a>
+      <a href="breach-check.html">Breach Check</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="login.html">Log in</a>
+      <a href="pricing.html" class="nav-cta">Go Pro</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="wrap">
+    <span class="eyebrow">Indicator scanner</span>
+    <h1>Check a URL, IP, domain, or file hash</h1>
+    <p>Results include a reputation verdict, detection ratio, and available registrar or hosting context. Free tier: 5 scans/day.</p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="wrap" style="max-width:760px;">
+    <div class="tool-panel">
+      <div class="tabs">
+        <button type="button" class="tab active" data-type="auto">Auto-detect</button>
+        <button type="button" class="tab" data-type="url">URL</button>
+        <button type="button" class="tab" data-type="ip">IP address</button>
+        <button type="button" class="tab" data-type="domain">Domain</button>
+        <button type="button" class="tab" data-type="hash">File hash</button>
+      </div>
+
+      <form id="scanForm">
+        <div class="search-row">
+          <input type="text" id="scanInput" placeholder="Paste a URL, IP, domain, or file hash…" autocomplete="off" spellcheck="false" required>
+          <button type="submit" class="btn btn-primary">Scan</button>
+        </div>
+        <p class="help-text">Nothing is scanned until you submit. We don't store scan targets against your identity on the free tier.</p>
+      </form>
+
+      <div class="quota-bar">
+        <span id="quotaLabel">5 / 5 free scans remaining today</span>
+        <a href="pricing.html">Upgrade for unlimited →</a>
+      </div>
+
+      <div class="result-panel" id="scanResults">
+        <div class="result-empty">Run a scan to see results here.</div>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>Data source note.</strong> This demo uses simulated results so you can see the interface. Wire up <code>runScan()</code> in <code>js/main.js</code> to your own backend, which calls the VirusTotal API (or similar) with a server-side key — never expose that key in client code.
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <p>© 2026 SentryPoint. For defensive security research only.</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="breach-check.html">Breach Check</a>
+      <a href="pricing.html">Pricing</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

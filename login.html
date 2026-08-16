@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; script-src 'self';">
+<title>Log in — SentryPoint</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand"><span class="dot"></span>SENTRYPOINT</a>
+    <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="scanner.html">Scanner</a>
+      <a href="breach-check.html">Breach Check</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="login.html" class="active">Log in</a>
+    </div>
+  </div>
+</nav>
+
+<section class="section">
+  <div class="wrap">
+    <div class="auth-box">
+      <h1 style="font-family:var(--font-mono); font-size:22px; margin-bottom:6px;">Welcome back</h1>
+      <p style="color:var(--muted); font-size:14px; margin-bottom:26px;">Log in to access your scan history and Pro tools.</p>
+
+      <div class="form-msg err" id="authMsg"></div>
+
+      <form id="loginForm" autocomplete="on">
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required autocomplete="username">
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required autocomplete="current-password" minlength="8">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:6px;">Log in</button>
+      </form>
+
+      <p style="text-align:center; font-size:13px; color:var(--muted); margin-top:20px;">No account? Upgrading on the <a href="pricing.html" style="color:var(--signal);">pricing page</a> creates one.</p>
+    </div>
+
+    <div class="note-box" style="max-width:420px; margin:24px auto 0;">
+      <strong>Auth note.</strong> This form is UI-only. A real implementation must hash passwords server-side (e.g. bcrypt/argon2), never log or store plaintext passwords, enforce rate-limiting on login attempts, and serve this page over HTTPS only.
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <p>© 2026 SentryPoint. For defensive security research only.</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="pricing.html">Pricing</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+document.getElementById('loginForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const msg = document.getElementById('authMsg');
+  msg.textContent = 'This is a UI demo — connect this form to your real auth backend to enable login.';
+  msg.className = 'form-msg err show';
+});
+</script>
+</body>
+</html>
